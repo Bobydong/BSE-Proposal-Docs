@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BSE × Palantir — Partnership Proposal</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cyan: #00D4E8;
+    --dark: #0A0E0F;
+    --dark2: #121819;
+    --teal: #0D3038;
+    --white: #F4F6F6;
+    --gray: #8A9899;
+    --border: rgba(0,212,232,0.2);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--white);
+    color: var(--dark);
+    font-family: 'DM Sans', sans-serif;
+    width: 816px;
+    min-height: 1056px;
+    margin: 0 auto;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* ── TOP ACCENT BAR ── */
+  .top-bar {
+    width: 100%;
+    height: 6px;
+    background: var(--cyan);
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--dark);
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .bse-badge {
+    width: 34px;
+    height: 34px;
+    background: var(--cyan);
+    clip-path: polygon(50% 0%, 93% 25%, 93% 75%, 50% 100%, 7% 75%, 7% 25%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    color: var(--dark);
+    flex-shrink: 0;
+  }
+
+  .org-name {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  .year-tag {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--gray);
+    letter-spacing: 0.08em;
+  }
+
+  /* ── HERO SECTION ── */
+  .hero {
+    background: var(--dark);
+    padding: 36px 40px 32px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    right: -40px;
+    width: 280px;
+    height: 280px;
+    background: radial-gradient(circle, rgba(0,212,232,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .partnership-label {
+    display: inline-block;
+    background: var(--cyan);
+    color: var(--dark);
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    padding: 5px 12px;
+    margin-bottom: 20px;
+  }
+
+  .hero-names {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .hero-names h1 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 72px;
+    line-height: 0.92;
+    color: var(--white);
+    letter-spacing: 0.02em;
+  }
+
+  .hero-names h1 span {
+    color: var(--cyan);
+  }
+
+  .x-divider {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 48px;
+    color: var(--teal);
+    line-height: 1;
+    padding-top: 4px;
+  }
+
+  /* ── OBJECTIVE BOX ── */
+  .objective-wrap {
+    background: var(--dark);
+    padding: 0 40px 32px;
+  }
+
+  .objective-box {
+    border: 1.5px solid var(--cyan);
+    background: rgba(0,212,232,0.04);
+    padding: 20px 24px;
+    position: relative;
+  }
+
+  .objective-box::before {
+    content: 'OBJECTIVE';
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    background: var(--dark);
+    padding: 0 8px;
+    font-family: 'Space Mono', monospace;
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: var(--cyan);
+  }
+
+  .objective-box p {
+    font-size: 13px;
+    line-height: 1.65;
+    color: rgba(244,246,246,0.88);
+    font-weight: 300;
+  }
+
+  .objective-box strong {
+    color: var(--white);
+    font-weight: 700;
+  }
+
+  /* ── BODY ── */
+  .body-content {
+    padding: 32px 40px 28px;
+    background: var(--white);
+  }
+
+  /* TWO COLUMNS */
+  .two-col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 28px;
+  }
+
+  .col-card {
+    border-top: 3px solid var(--cyan);
+    padding-top: 16px;
+  }
+
+  .col-card h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 22px;
+    letter-spacing: 0.04em;
+    color: var(--dark);
+    margin-bottom: 12px;
+  }
+
+  .col-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .col-card ul li {
+    font-size: 12.5px;
+    line-height: 1.55;
+    color: #2A3335;
+    padding-left: 16px;
+    position: relative;
+  }
+
+  .col-card ul li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: var(--cyan);
+    font-size: 9px;
+    top: 3px;
+  }
+
+  .col-card ul li strong {
+    color: var(--dark);
+  }
+
+  /* STATS STRIP */
+  .stats-strip {
+    background: var(--dark);
+    padding: 20px 24px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-bottom: 28px;
+  }
+
+  .stat-item {
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.08);
+    padding: 8px 12px;
+  }
+  .stat-item:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 36px;
+    color: var(--cyan);
+    line-height: 1;
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 9.5px;
+    color: var(--gray);
+    font-family: 'Space Mono', monospace;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-top: 4px;
+    display: block;
+  }
+
+  /* PARTNERSHIP TIERS */
+  .tiers-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 26px;
+    letter-spacing: 0.04em;
+    color: var(--dark);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .tiers-title::after {
+    content: '';
+    flex: 1;
+    height: 1.5px;
+    background: linear-gradient(90deg, var(--cyan), transparent);
+  }
+
+  .tiers-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 28px;
+  }
+
+  .tier-card {
+    border: 1px solid #D5DBDB;
+    padding: 14px 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .tier-card.featured {
+    border-color: var(--dark);
+    background: var(--dark);
+  }
+
+  .tier-card.featured .tier-name { color: var(--cyan); }
+  .tier-card.featured .tier-price { color: var(--white); }
+  .tier-card.featured .tier-item { color: rgba(244,246,246,0.8); }
+  .tier-card.featured .tier-item::before { color: var(--cyan); }
+
+  .tier-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--cyan);
+  }
+
+  .tier-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.06em;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+
+  .tier-price {
+    font-family: 'Space Mono', monospace;
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--dark);
+    margin-bottom: 12px;
+  }
+
+  .tier-price span {
+    font-size: 11px;
+    color: var(--gray);
+    font-weight: 400;
+  }
+
+  .tier-items {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .tier-item {
+    font-size: 11px;
+    color: #3A4A4C;
+    padding-left: 13px;
+    position: relative;
+    line-height: 1.45;
+  }
+
+  .tier-item::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--cyan);
+    font-size: 10px;
+  }
+
+  /* WHY PLNTR */
+  .why-section {
+    background: linear-gradient(135deg, var(--teal) 0%, var(--dark2) 100%);
+    padding: 20px 24px;
+    margin-bottom: 28px;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .why-icon {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 52px;
+    color: var(--cyan);
+    line-height: 1;
+    opacity: 0.35;
+  }
+
+  .why-text h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 20px;
+    letter-spacing: 0.06em;
+    color: var(--cyan);
+    margin-bottom: 6px;
+  }
+
+  .why-text p {
+    font-size: 12px;
+    line-height: 1.6;
+    color: rgba(244,246,246,0.78);
+  }
+
+  .why-text p strong { color: var(--white); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    padding: 18px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .footer-left {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .footer-left .label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--white);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .footer-left .url {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    color: var(--gray);
+  }
+
+  .snowflakes {
+    display: flex;
+    gap: 6px;
+  }
+
+  .snowflake {
+    width: 28px;
+    height: 28px;
+    background: var(--cyan);
+    -webkit-mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l1.5 3.5L17 4l-2 3 3.5 1.5L15 10l1 4-4-1-4 1 1-4-3.5-1.5L9 7 7 4l3.5 1.5z'/%3E%3C/svg%3E");
+    mask-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M12 2l1.5 3.5L17 4l-2 3 3.5 1.5L15 10l1 4-4-1-4 1 1-4-3.5-1.5L9 7 7 4l3.5 1.5z'/%3E%3C/svg%3E");
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    opacity: 0.85;
+  }
+
+  /* ── ASTERISK DECORATION ── */
+  .asterisk {
+    display: inline-block;
+    color: var(--cyan);
+    font-size: 18px;
+    line-height: 1;
+    vertical-align: middle;
+    margin-right: 6px;
+  }
+
+  /* CTA ROW */
+  .cta-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 24px;
+    background: var(--cyan);
+    margin-bottom: 0;
+  }
+
+  .cta-row p {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--dark);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .cta-contact {
+    display: flex;
+    gap: 20px;
+  }
+
+  .cta-contact a {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--dark);
+    text-decoration: none;
+    font-weight: 700;
+    border-bottom: 1.5px solid rgba(10,14,15,0.35);
+    padding-bottom: 1px;
+  }
+
+  /* DIVIDER LINE */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(90deg, var(--cyan), transparent 60%);
+    margin: 0 40px 20px;
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP ACCENT -->
+<div class="top-bar"></div>
+
+<!-- HEADER -->
+<header>
+  <div class="header-left">
+    <div class="bse-badge">BSE</div>
+    <span class="org-name">Bruin Software Engineers</span>
+  </div>
+  <span class="year-tag">2025 – 26 PARTNERSHIP PROPOSAL</span>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="partnership-label">★ Strategic Partnership</div>
+  <div class="hero-names">
+    <h1>BSE<br><span>×</span><br>PALANTIR</h1>
+    <div style="max-width: 340px; padding-left: 12px; border-left: 2px solid rgba(0,212,232,0.3);">
+      <p style="font-family:'DM Sans',sans-serif; font-size:13.5px; line-height:1.6; color:rgba(244,246,246,0.75); font-weight:300;">
+        Creating a <strong style="color:var(--white);">direct pipeline between UCLA's most driven engineering students</strong> and one of the most consequential technology companies in the world.
+      </p>
+    </div>
+  </div>
+</div>
+
+<!-- OBJECTIVE -->
+<div class="objective-wrap">
+  <div class="objective-box">
+    <p>
+      BSE seeks to establish a <strong>founding-year partnership with Palantir</strong> to create a direct pipeline between UCLA's most driven engineering students and industry leaders like Palantir. There is a plethora of talent at UCLA, but the rapidly changing landscape makes it unclear what skills to prioritize. We want Palantir to <strong>work with us to define what the ideal candidate looks like</strong> — and collaborate to host events (fireside chats, webinars, tech talks) that bring Palantir's engineering culture directly to our 250+ members. In return, BSE will build a curriculum tailored to Palantir's exact needs, and deliver <strong>live on-campus interviews with UCLA's top Bruin talent</strong> — screened, tested, and filtered to the best ~10 candidates ready to interview.
+    </p>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="body-content">
+
+  <!-- STATS -->
+  <div class="stats-strip">
+    <div class="stat-item">
+      <span class="stat-num">250+</span>
+      <span class="stat-label">Active Members</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">35+</span>
+      <span class="stat-label">Industry Mentors</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">3+</span>
+      <span class="stat-label">UCLA Faculty</span>
+    </div>
+    <div class="stat-item">
+      <span class="stat-num">400+</span>
+      <span class="stat-label">Projected 2026</span>
+    </div>
+  </div>
+
+  <!-- TWO COLUMN -->
+  <div class="two-col">
+    <div class="col-card">
+      <h3>We Ask of Palantir</h3>
+      <ul>
+        <li><strong>Tell us what you seek</strong> — work with BSE to define the skills and profile of your ideal candidate</li>
+        <li><strong>Collaborate on events</strong> — co-host fireside chats, webinars, and tech talks that bring Palantir's engineering culture to campus</li>
+        <li><strong>Engage our community</strong> — connect Palantir engineers with BSE's mentorship and project tracks</li>
+      </ul>
+    </div>
+    <div class="col-card">
+      <h3>What Palantir Gets</h3>
+      <ul>
+        <li><strong>Curriculum built around you</strong> — an extensive, in-demand skills track co-designed with Palantir's input</li>
+        <li><strong>On-Campus Interview Day</strong> — we screen, test, and filter UCLA's talent pool, delivering ~10 of the best candidates directly to you</li>
+        <li><strong>Brand visibility</strong> across BSE's website, event signage, newsletters, and social media</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- WHY PALANTIR -->
+  <div class="why-section">
+    <div class="why-icon">✦</div>
+    <div class="why-text">
+      <h3>Why Palantir + BSE</h3>
+      <p>
+        BSE members are builders trained to move beyond coursework — they deploy, iterate, and ship. <strong>Palantir builds software for the world's hardest problems</strong>, demanding engineers with exactly that mindset. By partnering with BSE, Palantir gains early access to students shaped by a curriculum built to Palantir's own standards, mentored by industry engineers, and ready to contribute from day one. We don't just send résumés — <strong>we send prepared engineers</strong>.
+      </p>
+    </div>
+  </div>
+
+</div>
+
+<!-- CTA ROW -->
+<div style="padding: 0 40px 0;">
+  <div class="cta-row">
+    <p>Ready to partner? Reach out today.</p>
+    <div class="cta-contact">
+      <a href="/cdn-cgi/l/email-protection#771504125916035902141b1637101a161e1b5914181a"><span class="__cf_email__" data-cfemail="640617014a05104a11070805240309050d084a070b09">[email&#160;protected]</span></a>
+      <a href="https://bseatucla.com">bseatucla.com</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <span class="label">Sponsorship Packet</span>
+    <span class="url">www.bseatucla.com</span>
+  </div>
+  <div class="snowflakes">
+    <!-- BSE asterisk mark replicated in CSS -->
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="14" cy="14" r="14" fill="#0D3038"/>
+      <path d="M14 4v20M4 14h20M7 7l14 14M21 7L7 21" stroke="#00D4E8" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M14 8.5l2-2M14 8.5l-2-2M19.5 14l2-2M19.5 14l2 2M14 19.5l2 2M14 19.5l-2 2M8.5 14l-2-2M8.5 14l-2 2" stroke="#00D4E8" stroke-width="1.4" stroke-linecap="round"/>
+    </svg>
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="14" cy="14" r="14" fill="#0D3038"/>
+      <path d="M14 4v20M4 14h20M7 7l14 14M21 7L7 21" stroke="#00D4E8" stroke-width="2.2" stroke-linecap="round"/>
+      <path d="M14 8.5l2-2M14 8.5l-2-2M19.5 14l2-2M19.5 14l2 2M14 19.5l2 2M14 19.5
